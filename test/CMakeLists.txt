@@ -1,6 +1,10 @@
 set(BINARY string_processing_gtest)
 
-add_executable(${BINARY} test_trie.cpp test_tst.cpp)
+add_executable(${BINARY}
+                test_trie.cpp
+                test_tst.cpp
+                test_kmp.cpp
+)
 
 add_test(NAME ${BINARY} COMMAND ${BINARY})
 
