@@ -4,6 +4,7 @@ add_executable(${BINARY}
                 test_trie.cpp
                 test_tst.cpp
                 test_kmp.cpp
+                test_bm.cpp
 )
 
 add_test(NAME ${BINARY} COMMAND ${BINARY})
