@@ -3,8 +3,10 @@
 ## `include/`
 - [`Trie`](https://en.wikipedia.org/wiki/Trie) symbol table
 - [`TernarySearchTrie`](https://en.wikipedia.org/wiki/Ternary_search_tree) symbol table
-- Implementation of [Knuth-Morris-Pratt](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm) algorithm for efficient pattern matching 
-- Implementation of [Boyer-Moore](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string-search_algorithm) algorithm for efficient pattern matching 
+- Implementations of the following efficient pattern matching algorithms: 
+  - [Knuth-Morris-Pratt](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)
+  - [Boyer-Moore](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string-search_algorithm) 
+  - [Rabin-Karp](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm) 
 
 ## Compilation and execution
 - Download submodules (for unit tests): `git submodule update --init --recursive`
