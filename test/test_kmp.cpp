@@ -10,10 +10,10 @@
 //}
 
 TEST(kmp, single) { // NOLINT
-    EXPECT_EQ(kmp::find_single_match("ABABAC", "ABABACB"), 0);
-    EXPECT_EQ(kmp::find_single_match("ABABAC", "AABABACB"), 1);
-    EXPECT_EQ(kmp::find_single_match("ABABAC", "AABABABB"), 8);
-    EXPECT_EQ(kmp::find_single_match("AAAAA", "AAAABAAAAAC"), 5);
+    EXPECT_EQ(*kmp::find_single_match("ABABAC", "ABABACB"), 0);
+    EXPECT_EQ(*kmp::find_single_match("ABABAC", "AABABACB"), 1);
+    EXPECT_EQ(kmp::find_single_match("ABABAC", "AABABABB").has_value(), false);
+    EXPECT_EQ(*kmp::find_single_match("AAAAA", "AAAABAAAAAC"), 5);
 }
 
 TEST(kmp, all) { // NOLINT

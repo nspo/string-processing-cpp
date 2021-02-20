@@ -55,11 +55,11 @@ namespace rk {
     }
 
     [[nodiscard]]
-    size_t find_probabilistic_single_match(std::string_view pat, std::string_view text) {
+    std::optional<size_t> find_probabilistic_single_match(std::string_view pat, std::string_view text) {
         auto result = find_probabilistic_all_matches(pat, text, 1);
 
-        if (result.empty()) return text.size();
-        else return result[0];
+        if (result.empty()) return {};
+        else return {result[0]};
     }
 
 

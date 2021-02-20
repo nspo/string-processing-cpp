@@ -18,10 +18,10 @@ TEST(bm, single) { // NOLINT
     EXPECT_EQ(table['e'], 1);
     EXPECT_EQ(table['l'], 3);
     EXPECT_EQ(table['o'], 4);
-    EXPECT_EQ(bm::find_single_match("ABABAC", "ABABACB"), 0);
-    EXPECT_EQ(bm::find_single_match("ABABAC", "AABABACB"), 1);
-    EXPECT_EQ(bm::find_single_match("ABABAC", "AABABABB"), 8);
-    EXPECT_EQ(bm::find_single_match("AAAAA", "AAAABAAAAAC"), 5);
+    EXPECT_EQ(*bm::find_single_match("ABABAC", "ABABACB"), 0);
+    EXPECT_EQ(*bm::find_single_match("ABABAC", "AABABACB"), 1);
+    EXPECT_EQ(bm::find_single_match("ABABAC", "AABABABB").has_value(), false);
+    EXPECT_EQ(*bm::find_single_match("AAAAA", "AAAABAAAAAC"), 5);
 }
 
 TEST(bm, all) { // NOLINT
