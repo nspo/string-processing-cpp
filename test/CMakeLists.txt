@@ -9,6 +9,8 @@ add_executable(${BINARY}
                 test_nfa.cpp
 )
 
+add_executable(grep grep.cpp)
+
 add_test(NAME ${BINARY} COMMAND ${BINARY})
 
 target_link_libraries(${BINARY} PUBLIC gtest gtest_main pthread)
