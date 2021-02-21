@@ -6,6 +6,7 @@ add_executable(${BINARY}
                 test_kmp.cpp
                 test_bm.cpp
                 test_rk.cpp
+                test_nfa.cpp
 )
 
 add_test(NAME ${BINARY} COMMAND ${BINARY})

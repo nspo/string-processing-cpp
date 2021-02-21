@@ -7,7 +7,7 @@
   - [Knuth-Morris-Pratt](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm)
   - [Boyer-Moore](https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string-search_algorithm) 
   - [Rabin-Karp](https://en.wikipedia.org/wiki/Rabin%E2%80%93Karp_algorithm) 
-
+- [Nondeterministic Finite Automaton](https://en.wikipedia.org/wiki/Nondeterministic_finite_automaton) to match [Regular Expressions](https://en.wikipedia.org/wiki/Regular_expression)
 ## Compilation and execution
 - Download submodules (for unit tests): `git submodule update --init --recursive`
 - Compile with `cmake`:
