@@ -23,4 +23,12 @@ TEST(tst, basic) { // NOLINT
     EXPECT_FALSE(tst.get("sh"));
     EXPECT_FALSE(tst.contains("Benedict"));
     EXPECT_TRUE(tst.contains("shore"));
+
+    EXPECT_EQ(tst.longestPrefixOf("shellsort"), "shells");
+    EXPECT_EQ(tst.longestPrefixOf("sellsquark"), "sells");
+    EXPECT_EQ(tst.longestPrefixOf("sherman"), "she");
+    EXPECT_EQ(tst.longestPrefixOf("shores"), "shore");
+    EXPECT_EQ(tst.longestPrefixOf("seamen"), "sea");
+    EXPECT_EQ(tst.longestPrefixOf("maria"), "");
+    EXPECT_EQ(tst.longestPrefixOf("shtick"), "");
 }

@@ -31,6 +31,12 @@ TEST(trie, basic) { // NOLINT
     EXPECT_EQ(keys2, (std::vector<std::string> {"she", "shells", "shore"}));
 
     EXPECT_EQ(trie.longestPrefixOf("shellsort"), "shells");
+    EXPECT_EQ(trie.longestPrefixOf("sellsquark"), "sells");
+    EXPECT_EQ(trie.longestPrefixOf("sherman"), "she");
+    EXPECT_EQ(trie.longestPrefixOf("shores"), "shore");
+    EXPECT_EQ(trie.longestPrefixOf("seamen"), "sea");
+    EXPECT_EQ(trie.longestPrefixOf("maria"), "");
+    EXPECT_EQ(trie.longestPrefixOf("shtick"), "");
 }
 
 TEST(trie, ip) { // NOLINT

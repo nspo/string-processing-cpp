@@ -48,6 +48,22 @@ private:
             return x;
         }
     }
+
+    int search(Node* x, const std::string& key, const int depth, int length) const {
+        if (!x) return length;
+        if (depth == key.size()) return length;
+        const char c = key[depth];
+
+        if (c < x->c) {
+            return search(x->left.get(), key, depth, length);
+        } else if (c > x->c) {
+            return search(x->right.get(), key, depth, length);
+        } else {
+            // character matches! go down middle
+            if (x->value) length = depth+1;
+            return search(x->mid.get(), key, depth+1, length);
+        }
+    }
 public:
     void put(const std::string& key, const Value value) {
         root = put(std::move(root), key, 0, value);
@@ -63,6 +79,12 @@ public:
     [[nodiscard]]
     bool contains(const std::string& key) const {
         return get(key).has_value();
+    }
+
+    [[nodiscard]]
+    std::string longestPrefixOf(const std::string& key) const {
+        const int length = search(root.get(), key,0, 0);
+        return key.substr(0, length);
     }
 };
 
