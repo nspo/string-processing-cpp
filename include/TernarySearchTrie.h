@@ -3,6 +3,7 @@
 
 #include <optional>
 #include <memory>
+#include <string_view>
 
 template<typename Value>
 class TernarySearchTrie {
@@ -17,7 +18,7 @@ private:
 
     NodeUPtr root;
 
-    NodeUPtr put(NodeUPtr x, const std::string& key, const int depth, const Value value) {
+    NodeUPtr put(NodeUPtr x, const std::string_view key, const size_t depth, const Value value) {
         const char c = key[depth];
         if (!x) {
             x = std::make_unique<Node>();
@@ -35,7 +36,7 @@ private:
         return x;
     }
 
-    Node* get(Node* x, const std::string& key, const int depth) const {
+    Node* get(Node* x, const std::string_view key, const size_t depth) const {
         if (!x) return x;
         const char c = key[depth];
         if (c < x->c) {
@@ -49,7 +50,7 @@ private:
         }
     }
 
-    int search(Node* x, const std::string& key, const int depth, int length) const {
+    int search(Node* x, std::string_view key, const size_t depth, size_t length) const {
         if (!x) return length;
         if (depth == key.size()) return length;
         const char c = key[depth];
@@ -65,24 +66,24 @@ private:
         }
     }
 public:
-    void put(const std::string& key, const Value value) {
+    void put(const std::string_view key, const Value value) {
         root = put(std::move(root), key, 0, value);
     }
 
     [[nodiscard]]
-    std::optional<Value> get(const std::string& key) const {
+    std::optional<Value> get(const std::string_view key) const {
         Node* x = get(root.get(), key, 0);
         if (!x) return {};
         return x->value;
     }
 
     [[nodiscard]]
-    bool contains(const std::string& key) const {
+    bool contains(const std::string_view key) const {
         return get(key).has_value();
     }
 
     [[nodiscard]]
-    std::string longestPrefixOf(const std::string& key) const {
+    std::string_view longestPrefixOf(std::string_view key) const {
         const int length = search(root.get(), key,0, 0);
         return key.substr(0, length);
     }
